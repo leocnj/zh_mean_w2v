@@ -1,5 +1,10 @@
+# -*- coding: UTF-8 -*-
+# the above is required for utf-8 encoded python code
+
 import numpy as np
 import jieba
+# seem to be required for Python 2.7 to open utf-8 files
+import io
 
 class MeanEmbeddingVectorizer(object):
     def __init__(self, word2vec):
@@ -20,7 +25,7 @@ class MeanEmbeddingVectorizer(object):
 
 
 # load wiki.zh 300d word2vec embedding provided by Facebook
-with open('../wiki.zh/wiki.zh.vec', "r", encoding='utf-8') as lines:
+with io.open('./wiki.zh.vec', "r", encoding='utf-8') as lines:
     w2v = {line.split()[0]: np.asarray(line.split()[1:], dtype='float32') for line in lines}
 
 
