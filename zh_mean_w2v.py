@@ -25,7 +25,7 @@ class MeanEmbeddingVectorizer(object):
 
 
 # load wiki.zh 300d word2vec embedding provided by Facebook
-with io.open('./wiki.zh.vec', "r", encoding='utf-8') as lines:
+with io.open('../wiki.zh/wiki.zh.vec', "r", encoding='utf-8') as lines:
     w2v = {line.split()[0]: np.asarray(line.split()[1:], dtype='float32') for line in lines}
 
 
